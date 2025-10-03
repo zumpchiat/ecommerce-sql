@@ -95,9 +95,12 @@ INSERT INTO ecommerce.productSeller (id_Pseller, id_Pproduct, prodQuantity) VALU
 	(2,6,10)
 ;
 
--- POPULATE TABLE
--- POPULATE TABLE
--- POPULATE TABLE
+-- POPULATE TABLE payments
+INSERT INTO ecommerce.payment (id_Payment ,typePayment ,limitAvailable ) VALUES 
+	(1, "Boleto", null),
+	(3, "Cartão", null)
+;
+
 
 
 
