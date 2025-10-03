@@ -6,13 +6,12 @@ USE ecommerce;
 -- CREATE TABLE CLIENT
 CREATE TABLE ecommerce.clients(
 	id_Client INT AUTO_INCREMENT PRIMARY KEY,
-	Fname VARCHAR(12),
-	Lname VARCHAR(25),
+	Fname VARCHAR(30),
+	Lname VARCHAR(30),
 	CPF CHAR(11) NOT NULL,
-	ADDRESS VARCHAR(30),
+	ADDRESS VARCHAR(255),
 	CONSTRAINT unique_cpf UNIQUE (CPF)
 );
-
 
 
 -- CREATE TABLE PAYMENT
@@ -42,18 +41,13 @@ CREATE TABLE ecommerce.orders(
 -- CREATE TABLE PRODUCT
 CREATE TABLE ecommerce.product(
 	id_Product INT AUTO_INCREMENT PRIMARY KEY,
-	Pname VARCHAR(15),
+	Pname VARCHAR(30),
 	classification_kids BOOL,
 	category ENUM('Eletrônico','Vestimenta','Brinquedos','Alimentos','Móveis') NOT NULL ,
 	avaliation FLOAT DEFAULT 0,
 	size VARCHAR(10)
 	
 );
-
-
-
-
-
 
 -- CREATE TABLE ESTOQUE
 CREATE TABLE ecommerce.productStorage(
@@ -130,6 +124,17 @@ CREATE TABLE ecommerce.productOrder(
     CONSTRAINT fk_productOrder_product FOREIGN KEY (id_POorder) REFERENCES orders(id_Order)
 );
 
+ALTER TABLE ecommerce.clients  AUTO_INCREMENT=1;
+ALTER TABLE ecommerce.product  AUTO_INCREMENT=1;
+ALTER TABLE ecommerce.productOrder AUTO_INCREMENT=1;
+ALTER TABLE ecommerce.productSeller  AUTO_INCREMENT=1;
+ALTER TABLE ecommerce.productStorage  AUTO_INCREMENT=1;
+ALTER TABLE ecommerce.productSupplier  AUTO_INCREMENT=1;
+ALTER TABLE ecommerce.orders AUTO_INCREMENT=1;
+ALTER TABLE ecommerce.storeagelocation  AUTO_INCREMENT=1;
+ALTER TABLE ecommerce.payment  AUTO_INCREMENT=1;
+ALTER TABLE ecommerce.supplier  AUTO_INCREMENT=1;
+ALTER TABLE ecommerce.seller  AUTO_INCREMENT=1;
 
 
 
