@@ -15,7 +15,7 @@ CREATE TABLE ecommerce.natural_person(
 CREATE TABLE ecommerce.legal_person(
 	id_legal_person INT AUTO_INCREMENT PRIMARY KEY,
 	cnpj VARCHAR(45),
-	SocialName VARCHAR(30),
+	SocialName VARCHAR(150),
 	CONSTRAINT unique_cnpf UNIQUE (cnpj)
 	
 );
@@ -31,7 +31,9 @@ CREATE TABLE ecommerce.clients(
 	CONSTRAINT fk_legal_person FOREIGN KEY (id_ClientCNPJ) REFERENCES legal_person (id_legal_person)
 		ON DELETE CASCADE,
 	CONSTRAINT fk_natural_person FOREIGN KEY (id_ClientCPF) REFERENCES natural_person (id_natural_person)
-		ON DELETE CASCADE
+		ON DELETE CASCADE,
+	CONSTRAINT unique_cpf UNIQUE (id_ClientCPF),
+	CONSTRAINT unique_cnpj UNIQUE (id_ClientCNPJ)
 );
 
 
