@@ -3,14 +3,35 @@
 CREATE  DATABASE IF NOT EXISTS ecommerce;
 USE ecommerce;
 
+-- CREATE TABLE PESSOA FISICA
+CREATE TABLE ecommerce.natural_person(
+	id_natural_person INT AUTO_INCREMENT PRIMARY KEY,
+	cpf CHAR(11) NOT NULL,
+	CONSTRAINT unique_cpf UNIQUE (cpf)
+	
+);
+
+-- CREATE TABLE PESSOA JURIDICA
+CREATE TABLE ecommerce.legal_person(
+	id_legal_person INT AUTO_INCREMENT PRIMARY KEY,
+	cnpj VARCHAR(45),
+	SocialName VARCHAR(30),
+	CONSTRAINT unique_cnpf UNIQUE (cnpj)
+	
+);
+
 -- CREATE TABLE CLIENT
 CREATE TABLE ecommerce.clients(
 	id_Client INT AUTO_INCREMENT PRIMARY KEY,
 	Fname VARCHAR(30),
 	Lname VARCHAR(30),
-	CPF CHAR(11) NOT NULL,
+	id_ClientCNPJ INT,
+	id_ClientCPF INT,
 	ADDRESS VARCHAR(255),
-	CONSTRAINT unique_cpf UNIQUE (CPF)
+	CONSTRAINT fk_legal_person FOREIGN KEY (id_ClientCNPJ) REFERENCES legal_person (id_legal_person)
+		ON DELETE CASCADE,
+	CONSTRAINT fk_natural_person FOREIGN KEY (id_ClientCPF) REFERENCES natural_person (id_natural_person)
+		ON DELETE CASCADE
 );
 
 
@@ -22,15 +43,28 @@ CREATE TABLE ecommerce.payment(
 	PRIMARY KEY (id_Payment)
 );
 
+-- CREATE TABLE DELIVERY
+CREATE TABLE ecommerce.delivery(
+	id_delivery INT,
+	status ENUM("em rota", "entregue", "devolução"),
+	cod_tracking VARCHAR(25),
+	note VARCHAR(255),
+	PRIMARY KEY (id_delivery)
+);
+
+
 -- CREATE TABLE ORDERS
 CREATE TABLE ecommerce.orders(
 	id_Order INT AUTO_INCREMENT PRIMARY KEY,
 	id_OrderClient INT,
 	id_OrderPayment INT,
+	id_OrderDelivery INT,
 	orderStatus ENUM('Cancelado', 'Confirmado', 'Em processamento') DEFAULT 'Em processamento',
     orderDescription VARCHAR(255),
     sendValue FLOAT DEFAULT 10,
     paymentCash BOOL DEFAULT FALSE,
+    CONSTRAINT fk_delivery_order FOREIGN KEY (id_OrderDelivery) REFERENCES delivery(id_delivery) 
+    	ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_payment_order FOREIGN KEY (id_OrderPayment) REFERENCES payment(id_Payment),
     CONSTRAINT fk_orders_client FOREIGN KEY (id_OrderClient) REFERENCES clients(id_Client)
 			ON UPDATE CASCADE		
@@ -135,6 +169,8 @@ ALTER TABLE ecommerce.storeagelocation  AUTO_INCREMENT=1;
 ALTER TABLE ecommerce.payment  AUTO_INCREMENT=1;
 ALTER TABLE ecommerce.supplier  AUTO_INCREMENT=1;
 ALTER TABLE ecommerce.seller  AUTO_INCREMENT=1;
-
+ALTER TABLE ecommerce.delivery AUTO_INCREMENT=1;
+ALTER TABLE ecommerce.legal_person AUTO_INCREMENT=1;
+ALTER TABLE ecommerce.natural_person  AUTO_INCREMENT=1;
 
 
