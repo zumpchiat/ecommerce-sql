@@ -1,27 +1,58 @@
 use ecommerce;
 
+-- POPULATE TABLE NATURAL PERSON
+INSERT INTO ecommerce.natural_person (cpf) VALUES
+	(50872914658),
+	(32861950498),
+	(89654102315),
+	(54682097300),
+	(89526401794),
+	(64807953184),
+	(53762184062),
+	(50397824114),
+	(40835697193),
+	(81230475923)
+;
+
+select * from natural_person;
+
+-- POPULATE TABLE LEGAL PERSON
+INSERT INTO ecommerce.legal_person (cnpj ,SocialName ) VALUES
+	("85.392.140/0001-05", "productize world-class portals "),
+	("37.912.584/0001-81", "target user-centric functionalities "),
+	("37.268.540/0001-60", "synergize interactive applications "),
+	("74.351.029/0001-54", "iterate proactive solutions "),
+	("12.467.095/0001-37", "evolve robust portals "),
+	("30.869.247/0001-00", "monetize revolutionary functionalities "),
+	("64.015.389/0001-21", "enhance out-of-the-box bandwidth "),
+	("79.504.862/0001-01", "evolve efficient e-commerce "),
+	("09.863.724/0001-33", "reinvent ubiquitous action-items "),
+	("98.164.732/0001-11", "productize clicks-and-mortar networks ")
+;
+
+
 -- POPULATE TABLE clients
-INSERT INTO ecommerce.clients (Fname, Lname , CPF, ADDRESS ) VALUES
-("Luiz Fernando", "Pastor", 47589263109, "Vila Julia Pires, 33 - Mato Grosso do Sul 05258-154"),
-("Ester", "da Cruz", 23068514762, "Setor de da Cruz, 751 - Goiás 12642-367"),
-("Gabrielly", "Novais", 85429706167, "Morro das Neves, 8 - São Paulo 34555976"),
-("Erick", "Araújo", 14257380608, "Ladeira Cassiano - Rio Grande do Norte 63426353"),
-("Maria Luiza", "Pinto", 65487201994, "Morro das Neves, 98 - Rondônia 12278-838"),
-("Yan", "Siqueira", 19380265786, "Alameda de Pires, 53 - Mato Grosso 44361-665"),
-("Rebeca", "Câmara", 43697815237, "Loteamento Macedo, 2 - Goiás 54095-024"),
-("André", "Pastor", 07845196339, "Estrada Silva, 619 - Rio de Janeiro 06799326"),
-("Jade", "Teixeira", 90316247804, "Trevo Gael Henrique Fernandes, 69 - Alagoas 60738997"),
-("Bianca", "Silva", 54189072397, "Sítio Milena das Neves, 22 - Minas Gerais 01110291"),
-("Amanda", "Rocha", 39140762599, "Rua da Cruz, 14 - Sergipe 73400379"),
-("Olivia", "Barbosa", 12785406362, "Recanto da Mota, 739 - Rondônia 21551-885"),
-("Luiz Miguel", "Cassiano", 13840956757, "Loteamento Fonseca, 8 - Acre 41572944"),
-("Vitor", "Ramos", 81567203930, "Trecho Liz Sá, 7 - Mato Grosso 40235-702"),
-("Josué", "da Luz", 81726935086, "Recanto Nunes - Rio Grande do Sul 18883-457"),
-("Kevin", "Viana", 84153670235, "Favela de Carvalho, 11 - Goiás 22943-180"),
-("Liam", "Costa", 96082175476, "Trecho Luan Rios, 44 - Rondônia 65516-348"),
-("Lucca", "Silveira", 20395476143, "Setor de Casa Grande, 32 - Espírito Santo 53541-828"),
-("Bernardo", "Aragão", 20156847949, "Esplanada Leão, 6 - Roraima 74672165"),
-("Lorenzo", "Cunha", 08936145215, "Loteamento Mendes - Amazonas 33044-595")
+INSERT INTO ecommerce.clients (Fname, Lname , id_ClientCNPJ, id_ClientCPF, ADDRESS ) VALUES
+("Luiz Fernando", "Pastor",null, 1,"Vila Julia Pires, 33 - Mato Grosso do Sul 05258-154"),
+("Ester", "da Cruz", null, 2, "Setor de da Cruz, 751 - Goiás 12642-367"),
+("Gabrielly", "Novais", null,  3, "Morro das Neves, 8 - São Paulo 34555976"),
+("Erick", "Araújo", null, 4, "Ladeira Cassiano - Rio Grande do Norte 63426353"),
+("Maria Luiza", "Pinto", null, 5, "Morro das Neves, 98 - Rondônia 12278-838"),
+("Yan", "Siqueira", null, 6, "Alameda de Pires, 53 - Mato Grosso 44361-665"),
+("Rebeca", "Câmara",null, 7, "Loteamento Macedo, 2 - Goiás 54095-024"),
+("André", "Pastor",null, 8, "Estrada Silva, 619 - Rio de Janeiro 06799326"),
+("Jade", "Teixeira",null, 9, "Trevo Gael Henrique Fernandes, 69 - Alagoas 60738997"),
+("Bianca", "Silva",null, 10, "Sítio Milena das Neves, 22 - Minas Gerais 01110291"),
+("Manuela", "Barros", 1, null, "Esplanada Cirino, 5 - Rondônia 83772-769"),
+("Daniela", "Andrade", 2, null, "Loteamento Silveira, 989 - Pernambuco 63287-467"),
+("Davi Miguel", "da Rosa", 3, null, "Área Barros, 49 - Rio Grande do Norte 77550-286"),
+("Rodrigo", "Vasconcelos", 4, null, "Travessa Bárbara Novaes, 52 - Espírito Santo 26525-893"),
+("Mariah", "Gomes", 5, null, "Lago de da Conceição, 35 - São Paulo 52873-161"),
+("Arthur", "da Conceição", 6, null, "Sítio Pietra Vasconcelos, 1 - Espírito Santo 40770149"),
+("Pedro Henrique", "Novaes", 7, null, "Lagoa Sales, 318 - Goiás 69099276"),
+("Eduarda", "Pereira", 8, null, "Distrito Campos, 29 - Minas Gerais 06933-909"),
+("Ana Liz", "Mendes", 9, null, "Vereda Catarina da Costa, 595 - Amazonas 90105259"),
+("Manuella", "Pacheco", 10, null, "Viela Correia, 72 - Ceará 47024453")
 ;
 
 -- POPULATE TABLE product
@@ -39,7 +70,7 @@ INSERT INTO ecommerce.product (Pname , classification_kids , category , avaliati
 INSERT INTO ecommerce.orders (id_OrderClient , orderStatus , orderDescription ,sendValue ,paymentCash) VALUES
 	(1, null, "Compra via aplicativo", null, 1),
 	(2, null, "Compra via aplicativo", 50, 0),
-	(3, "Confirmado", null , null, 1),
+	(3, "Confirmado", "Loja" , null, 1),
 	(4, null, "Compra via site", 150, 0)
 ;
 
@@ -100,8 +131,4 @@ INSERT INTO ecommerce.payment (id_Payment ,typePayment ,limitAvailable ) VALUES
 	(1, "Boleto", null),
 	(3, "Cartão", null)
 ;
-
-
-
-
 
