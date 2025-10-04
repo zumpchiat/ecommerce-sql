@@ -12,9 +12,9 @@ Este projeto implementa a modelagem lógica de um E-commerce, com base em um cen
 
 ## Estrutura dos Arquivos e Pastas
 
-- **[schema.sql](schema.sql)** --> arquivo com estrutura do Banco de Dados
-- **[populate_ecommerce.sql](populate_ecommerce.sql)** Arquivo de dados não reais
-- **[queries.sql](queries.sql)** Queries do para executar no schema
+- **[schema.sql](schema.sql)** | arquivo com estrutura do Banco de Dados
+- **[populate_ecommerce.sql](populate_ecommerce.sql)** | Arquivo de dados fake
+- **[queries.sql](queries.sql)** | Queries do para executar no schema
 
 ---
 
