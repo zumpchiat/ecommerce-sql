@@ -6,18 +6,20 @@ Este projeto implementa a modelagem lógica de um E-commerce, com base em um cen
 
 ## Modelagem
 
-    [Diagrama DB](assets/diagrama.png)
+![err](https://github.com/zumpchiat/ecommerce-sql/blob/main/assets/diagrama.png?raw=true)
 
 ---
 
 ## Estrutura dos Arquivos e Pastas
 
-- **[schema.sql](schema.md)** --> arquivo com estrutura do Banco de Dados
-- **populate_ecommerce.sql** Arquivos de dados não reais
+- **[schema.sql](schema.sql)** --> arquivo com estrutura do Banco de Dados
+- **[populate_ecommerce.sql](populate_ecommerce.sql)** Arquivo de dados não reais
+- **[queries.sql](queries.sql)** Queries do para executar no schema
+
+---
 
 ## Tecnologias utilizadas
 
-## Como rodar
-
-<i class="fa-brands fa-github"></i>
-Refine o modelo apresentado acrescentando os seguintes pontos:
+-- MySQL
+-- SQL
+-- VSCODE
