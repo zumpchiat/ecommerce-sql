@@ -20,6 +20,6 @@ Este projeto implementa a modelagem lógica de um E-commerce, com base em um cen
 
 ## Tecnologias utilizadas
 
--- MySQL
--- SQL
--- VSCODE
+- MySQL
+- SQL
+- VSCODE
